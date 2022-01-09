@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Successfully helped!{% endblock title %}
+{% block content %}
+<div>
+    <h1>Thanks you for helping us!</h1>
+    <h3>You have successfully added a phishing website to our database!</h3>
+    <div class="how-works-con">
+        <h3 class="how-h">What will happen now?</h3>
+        <ul class="how-works-ul">
+            <li><span>1.</span> We will review the website</li>
+            <li><span>2.</span> If it is valid, we will accept it</li>
+            <li><span>3.</span> The domain will be added to our database</li>
+        </ul>
+    </div>
+    <a href="{% url 'report:home' %}">Return to submit more</a>
+</div>
+{% endblock content %}

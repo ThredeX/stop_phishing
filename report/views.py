@@ -1,5 +1,4 @@
 from django.shortcuts import redirect, render
-from django.http import response
 
 from .models import PhishingUrl
 from .forms import PhishingUrlForm
@@ -13,7 +12,7 @@ def home(req):
             form = PhishingUrlForm(req.POST)
             if form.is_valid():
                 form.save()
-            print(form.errors)
+                return redirect('report:success')
     return render(
         req,
         'report/home.html',
@@ -22,3 +21,7 @@ def home(req):
             'form': form
         }
     )
+
+
+def success(req):
+    return render(req, 'report/success.html')

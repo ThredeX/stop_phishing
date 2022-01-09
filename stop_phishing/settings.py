@@ -29,7 +29,7 @@ SECRET_KEY = env(
     default='django-insecure-hwj*2hic(l^!gpb&-rs=78(1o@y#k1pbl4e#1si3n**-r20g5v'
 )
 
-DEBUG = True
+DEBUG = env("DEBUG", default=False)
 
 ALLOWED_HOSTS = []
 
