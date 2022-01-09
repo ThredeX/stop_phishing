@@ -1,11 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Stop Phishing!</h1>
-<h3>Help by submitting phishing links. {{amount}} submitted so far!</h3>
+<div>
+  <h1>Stop Phishing!</h1>
+  <h3>Help by submitting phishing links. <span>{{amount}}</span> submitted so far!</h3>
+  
+  <form method="post" novalidate>
+    {% csrf_token %}
+  
+    {{ form.non_field_errors }}
+  
+    {% for hidden_field in form.hidden_fields %}
+      {{ hidden_field.errors }}
+      {{ hidden_field }}
+    {% endfor %}
+  
+      {% for field in form.visible_fields %}
+          {{ field }}
+          {{ field.help_text }}
+          {{ field.errors }}
+      {% endfor %}
+      <input type='submit' value='Report'/>
+  </form> 
+  <div class="how-works-con">
 
-<form action="{% url 'report:home' %}" method="POST">
-  {% csrf_token %}
-  {{ form }}<br>
-  <input type="submit" value="Submit!">
-</form>
+    <h3 class="how-h">How it works</h3>
+    
+    <ul class="how-works-ul">
+      <li><span>1.</span> You enter a valid url to the phishing site</li>
+      <li><span>2.</span> You submit the url</li>
+      <li><span>3.</span> We check if it is really a valid phishing url</li>
+      <li><span>4.</span> The url is saved to the database for everyone to use!</li>
+    </ul>
+  </div>
+</div>
 {% endblock content %}
