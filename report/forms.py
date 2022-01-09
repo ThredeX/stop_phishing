@@ -3,8 +3,6 @@ from django import forms
 from django.core import validators
 from . import models
 
-# TODO: fix validation always fail
-
 
 class PhishingUrlForm(forms.ModelForm):
 
@@ -16,5 +14,6 @@ class PhishingUrlForm(forms.ModelForm):
         validator = validators.URLValidator()
         validator(self.cleaned_data['domain'])
 
-        self.cleaned_data['domain'] = urlparse(
+        parsed_domain = urlparse(
             self.cleaned_data['domain']).netloc
+        return parsed_domain
