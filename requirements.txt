@@ -1,6 +1,6 @@
 asgiref==3.4.1
 autopep8==1.6.0
-Django==4.0.4
+Django==4.1.7
 django-environ==0.8.1
 marshmallow==3.14.1
 pycodestyle==2.8.0
