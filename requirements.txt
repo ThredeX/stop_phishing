@@ -5,6 +5,6 @@ django-environ==0.8.1
 marshmallow==3.14.1
 pycodestyle==2.8.0
 python-dotenv==0.19.2
-sqlparse==0.4.2
+sqlparse==0.4.4
 toml==0.10.2
 tzdata==2021.5
